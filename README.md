@@ -15,7 +15,7 @@ The environment file need to contain the following variables:
 - `PRIVATE_KEY` the private key that will be used to trade. The private key is an array of integers.
 - `CONNECTION` the URL of the RPC endpoint you will use to place trades (e.g https://solana-api.projectserum.com)
 
-🚨 All the amounts passed are expected with decimals. For example, if you want to place an order for 1 USDC, the amouunt passed needs to be 1 \* `USDC Decimals` = 1 \* 1,000,000 = 1,000,000
+🚨 All the amounts passed are expected with decimals. For example, if you want to place an order for 1 USDC, the amount passed needs to be 1 \* `USDC Decimals` = 1 \* 1,000,000 = 1,000,000
 
 It provides the following endpoints:
 
@@ -318,7 +318,7 @@ Response
 }
 ```
 
-- **POST** `/add-collateral/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
+- **POST** `/positions/add-collateral/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
 
 Body
 
@@ -340,7 +340,7 @@ Response
 
 ```
 
-- **POST** `/withdraw-collateral/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
+- **POST** `/positions/withdraw-collateral/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
 
 Body
 
@@ -362,7 +362,7 @@ Response
 
 ```
 
-- **POST** `/increase/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
+- **POST** `/positions/increase/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
 
 Body
 
@@ -384,7 +384,7 @@ Response
 
 ```
 
-- **POST** `/decrease/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
+- **POST** `/positions/decrease/0/475P8ZX3NrzyEMJSFHt9KCMjPpWBWGa6oNxkWcwww2BR`
 
 Body
 
