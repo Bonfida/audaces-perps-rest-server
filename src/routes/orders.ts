@@ -120,7 +120,9 @@ router.post("/:userAccount", async (req, res) => {
     }
     // opposite side => decrease position
     const marketState = await getMarketState(connection, userAccount.market);
-    const baseSize = size / marketState.getMarkPrice();
+    const baseSize =
+      (size * marketState.vCoinAmount) /
+      (marketState.vQuoteAmount - (side === "long" ? 1 : -1) * size);
 
     // Complete close
     if (baseSize >= currentPosition.size) {
