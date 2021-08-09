@@ -35,7 +35,7 @@ It provides the following endpoints:
 - Orders:
 
   - **GET** `/orders/details/:tx` returns the trade details for the specified transaction id
-  - **POST** `/order/:userAccount` places a trade with the specified user account. The `size`, `leverage` and `side` are specified in the body of the request
+  - **POST** `/orders/:userAccount` places a trade with the specified user account. The `size`, `leverage` and `side` are specified in the body of the request
 
 - Positions
 
