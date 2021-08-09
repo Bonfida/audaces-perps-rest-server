@@ -45,6 +45,9 @@ It provides the following endpoints:
   - **POST** `/positions/increase/:positionIndex/:marketAddress` increase the size of the specified position
   - **POST** `/positions/decrease/:positionIndex/:marketAddress` decrease the size of the specified position
 
+- Tradingview:
+  - **POST** `/tradingview` can be used to execute orders based on [TradingView](https://www.tradingview.com/) alerts
+
 It is recommended to have only 1 position per market (i.e 1 position per user account). In the case where you have one position per user account you can modify your position using the `/order/:userAccount`, however, if you have more than one, you will have to modify its size by using `/positions/increase/:positionIndex/:marketAddress` and `/positions/decrease/:positionIndex/:marketAddress`
 
 ## Reponse examples
@@ -391,6 +394,42 @@ Body
 ```
 {
 "size": 1000000
+}
+```
+
+Response
+
+```
+{
+    "result": {
+        "signature": "31rXH5bY62UyJ2ffBz3cLS6cFqCaqCoC7tWbwMmEQ8AJVpu3BnvkLpQpjfsytcRkkRrV5uWi9FdBiZL5GdpxBXC"
+    },
+    "success": true
+}
+
+```
+
+### Tradingview
+
+- **POST** `/tradingview`
+
+🚨 For the ease of use this is the only endpoint to accept UI amounts i.e amounts wihthout decimals. It means that in order to place an order of size 1 USDC the amount passed in the body of the request needs to be 1.
+
+In order to use this endpoint with Tradingview alerts:
+
+- Deploy the REST server on a remote machine
+- Create an alert on Tradingview using [webhooks](https://www.tradingview.com/support/solutions/43000529348-about-webhooks/):
+  - The webhook URL is `http(s)://<server_ip_or_domain>/tradingview`
+  - The format of the message alert can be found below in the `Body` example
+
+Body
+
+```
+{
+    "size": "5",
+    "leverage": "10",
+    "market": "BTC-PERP",
+    "side": "long"
 }
 ```
 

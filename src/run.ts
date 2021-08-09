@@ -7,6 +7,7 @@ import markets from "./routes/markets";
 import orders from "./routes/orders";
 import account from "./routes/account";
 import positions from "./routes/positions";
+import tradingview from "./routes/tradingview";
 
 export function run() {
   const app = express();
@@ -19,6 +20,7 @@ export function run() {
   app.use("/orders", orders);
   app.use("/account", account);
   app.use("/positions", positions);
+  app.use("/tradingview", tradingview);
 
   app.use(helmet());
 
